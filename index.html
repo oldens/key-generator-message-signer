@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator and Message Signer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Key Generator and Message Signer</h1>
+    <section id="key-generation">
+        <h2>Key Generation</h2>
+        <button id="generate-keys">Generate Keys</button>
+        <div>
+            <label for="public-key">Public Key:</label>
+            <textarea id="public-key" readonly></textarea>
+        </div>
+        <div>
+            <label for="private-key">Private Key:</label>
+            <textarea id="private-key" readonly></textarea>
+        </div>
+    </section>
+    <section id="message-signing">
+        <h2>Message Signing</h2>
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message"></textarea>
+        </div>
+        <div>
+            <label for="private-key-sign">Private Key:</label>
+            <textarea id="private-key-sign"></textarea>
+        </div>
+        <button id="sign-message">Sign Message</button>
+        <div>
+            <label for="signature">Signature:</label>
+            <textarea id="signature" readonly></textarea>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
