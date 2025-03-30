@@ -1,39 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Generator and Message Signer</title>
+    <title>Генератор ключів та підписувач повідомлень</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Key Generator and Message Signer</h1>
+    <h1>Генератор ключів та підписувач повідомлень</h1>
     <section id="key-generation">
-        <h2>Key Generation</h2>
-        <button id="generate-keys">Generate Keys</button>
+        <h2>Генерація ключів</h2>
+        <button id="generate-keys">Згенерувати ключі</button>
         <div>
-            <label for="public-key">Public Key:</label>
+            <label for="public-key">Публічний ключ:</label>
             <textarea id="public-key" readonly></textarea>
         </div>
         <div>
-            <label for="private-key">Private Key:</label>
+            <label for="private-key">Приватний ключ:</label>
             <textarea id="private-key" readonly></textarea>
         </div>
     </section>
     <section id="message-signing">
-        <h2>Message Signing</h2>
+        <h2>Підписування повідомлення</h2>
         <div>
-            <label for="message">Message:</label>
+            <label for="message">Повідомлення:</label>
             <textarea id="message"></textarea>
         </div>
         <div>
-            <label for="private-key-sign">Private Key:</label>
+            <label for="private-key-sign">Приватний ключ:</label>
             <textarea id="private-key-sign"></textarea>
         </div>
-        <button id="sign-message">Sign Message</button>
+        <button id="sign-message">Підписати повідомлення</button>
         <div>
-            <label for="signature">Signature:</label>
+            <label for="signature">Підпис:</label>
             <textarea id="signature" readonly></textarea>
+        </div>
+    </section>
+    <section id="message-validation">
+        <h2>Валідація повідомлення</h2>
+        <div>
+            <label for="message-validate">Повідомлення:</label>
+            <textarea id="message-validate"></textarea>
+        </div>
+        <div>
+            <label for="signature-validate">Підпис:</label>
+            <textarea id="signature-validate"></textarea>
+        </div>
+        <div>
+            <label for="public-key-validate">Публічний ключ:</label>
+            <textarea id="public-key-validate"></textarea>
+        </div>
+        <button id="verify-message">Перевірити повідомлення</button>
+        <div>
+            <label for="validation-result">Результат валідації:</label>
+            <textarea id="validation-result" readonly></textarea>
         </div>
     </section>
     <script src="script.js"></script>
