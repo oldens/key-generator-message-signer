@@ -42,6 +42,34 @@ async function signMessage() {
     document.getElementById("signature").value = arrayBufferToBase64(signature);
 }
 
+async function verifyMessage() {
+    const publicKeyBase64 = document.getElementById("public-key-validate").value;
+    const publicKey = await window.crypto.subtle.importKey(
+        "spki",
+        base64ToArrayBuffer(publicKeyBase64),
+        {
+            name: "RSASSA-PKCS1-v1_5",
+            hash: "SHA-256"
+        },
+        false,
+        ["verify"]
+    );
+
+    const message = new TextEncoder().encode(document.getElementById("message-validate").value);
+    const signature = base64ToArrayBuffer(document.getElementById("signature-validate").value);
+
+    const isValid = await window.crypto.subtle.verify(
+        {
+            name: "RSASSA-PKCS1-v1_5"
+        },
+        publicKey,
+        signature,
+        message
+    );
+
+    document.getElementById("validation-result").value = isValid ? "Підпис дійсний" : "Підпис недійсний";
+}
+
 function arrayBufferToBase64(buffer) {
     let binary = '';
     const bytes = new Uint8Array(buffer);
@@ -64,3 +92,4 @@ function base64ToArrayBuffer(base64) {
 
 document.getElementById("generate-keys").addEventListener("click", generateKeyPair);
 document.getElementById("sign-message").addEventListener("click", signMessage);
+document.getElementById("verify-message").addEventListener("click", verifyMessage);
